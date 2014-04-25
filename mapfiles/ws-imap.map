@@ -1,0 +1,110 @@
+# this is for creating the watersheds imagemap
+
+MAP
+
+  NAME 'basic'
+  SIZE 550 625
+  #EXTENT  186000 4813000 764000 5474000
+  EXTENT  135400 4808000 770000 5474000
+  UNITS METERS
+  #IMAGECOLOR 100 100 100
+  
+  SHAPEPATH "data/"
+  
+  IMAGETYPE "AGGAQ"
+  
+  OUTPUTFORMAT
+    NAME 'AGG'
+    DRIVER AGG/PNG
+    IMAGEMODE RGB
+  END
+  
+  OUTPUTFORMAT
+    NAME 'html'
+    DRIVER 'TEMPLATE'
+    MIMETYPE 'text/html'
+    #FORMATOPTION 'FILE=imap_template.html'
+    FORMATOPTION 'FILE=imap_template_huc.html'
+  END
+
+    OUTPUTFORMAT
+    NAME 'AGGAQ'
+    DRIVER AGG/PNG # not AGG specific, also works with GD. PNG is mandatory though
+    IMAGEMODE RGBA  # only for rgba imagemodes
+    MIMETYPE "image/png"
+    FORMATOPTION "QUANTIZE_FORCE=ON"
+    FORMATOPTION "QUANTIZE_COLORS=256"
+  END
+
+  # querymap gives you the map image along with the image map
+  QUERYMAP
+    STATUS ON
+    STYLE NORMAL
+  END
+
+  WEB
+    QUERYFORMAT 'html'  
+  END
+
+  PROJECTION
+    "init=epsg:26915"
+  END
+
+  WEB
+    IMAGEPATH "/OSGeo4w/tmp/"
+    IMAGEURL "/tmp/"
+    MAXSCALE 15500000
+  END
+
+LAYER
+  NAME "shadow"
+  STATUS OFF
+  DATA 'state'
+  TYPE POLYGON
+  OPACITY 50
+  #TEMPLATE "imap_template.html"
+    CLASS 
+       NAME "None"
+	   STYLE
+	       COLOR 212 212 212
+	       OFFSET 10 10
+	   END
+    END
+
+END
+
+LAYER
+  NAME "watersheds"
+  STATUS DEFAULT
+  DATA 'wbd8clip'
+  TYPE POLYGON
+  #TEMPLATE "imap_template.html"
+  TEMPLATE "imap_template_huc.html"
+    CLASS
+       NAME "None"
+	   STYLE
+	      #COLOR "#F8F6E0"
+	      COLOR "#EEE8AA"
+	      OUTLINECOLOR "#999999"
+	      WIDTH .5
+	   END
+    END
+
+END
+
+
+# Symbols ###################
+
+SYMBOL
+  NAME 'circle'
+  TYPE ELLIPSE
+  POINTS 1 1 END
+  FILLED TRUE
+END
+
+
+
+END  # end of map
+
+# Imagemap: http://localhost/cgi-bin/mapserv.exe?map=/ms4w/apps/noflash/ws-imap.map&qlayer=watersheds&mode=nquery&searchmap=true
+# Just the map:  http://127.0.0.1:8080/cgi-bin/mapserv.exe?map=/OSGeo4w/apps/watershed/ws-imap.map&mode=map
