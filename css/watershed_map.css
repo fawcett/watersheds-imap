@@ -1,0 +1,268 @@
+.clearboth {
+  clear: both;
+}
+
+#wrapper {
+    margin:0 auto;
+    width:900px;
+    text-align:left;
+}
+
+#map-view-container {
+  position: relative;
+}
+
+#map-container {
+  float: left;
+  position: relative;
+}
+
+#map-view-container img.map {
+  position: relative;
+  z-index: 100;
+}
+
+#map-view-container img.wshd {
+  display: none;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  z-index: 20;
+}    
+
+#map-view-container img.wshdBase {
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  z-index: 19;
+}
+
+#map-view-container h1 {
+  font-family: "Arial";
+  font-size: 1.6em;
+  line-height: .1em;
+  color: gray;
+  margin-top: 35px;
+  margin-bottom: 5px;
+  text-align: left;
+}
+    
+.mainBox {
+  float:left; 
+  text-align:left;
+  margin:0px 0px 10px 10px;
+  display:block;
+  position:relative;
+}
+.mainBoxContent {
+  width:900px; 
+  height:625px;
+  background:url(../images/vert-main-bg.gif) repeat-x;
+  display:block;  
+  border-width:0; 
+  padding-bottom: 10px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-bottom-radius: 7px;
+  position:relative;
+}
+
+.mainBoxContent_metro {
+  width:900px; 
+  height:605px;
+  background:url(http://cf.pca.state.mn.us/water/watershedweb/map/images/vert-main-bg.gif) repeat-x;
+  display:block;  
+  border-width:0; 
+  padding-bottom: 10px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-bottom-radius: 7px;
+  position:relative;
+}
+
+#topboxpa {
+  display:block;
+  float:left;
+  position:absolute;
+  left:470px;
+  top: 20px;
+  height:110px;
+  width:430px;
+  padding: 0px 0px 0px 0px;
+}
+
+#topboxpa_metro {
+  display:block;
+  float:left;
+  position:absolute;
+  left:570px;
+  top: 20px;
+  height:145px;
+  width:330px;
+  padding: 0px 0px 0px 0px;
+
+}
+  
+#topboxtext {
+  margin: 5px 30px 30px 10px;
+}
+    
+#middleboxpa  {  
+  display:block;
+  float:left;
+  position:absolute;
+  left:470px;
+  top: 230px;
+  height:275px;
+  width:430px;
+  background:transparent; 
+  border:solid #AEF0FA; 
+  border-width:1px 0px 1px 1px; 
+  overflow:hidden;
+  -webkit-border-top-left-radius: 7px;
+  -moz-border-radius-topleft: 7px;
+  border-top-left-radius: 7px;
+  -webkit-border-bottom-left-radius: 7px;
+  -moz-border-radius-bottomleft: 7px;
+  border-bottom-left-radius: 7px;
+  z-index: 200;
+}
+
+#middleboxpa_metro  {  
+  display:block;
+  float:left;
+  position:absolute;
+  left:570px;
+  top: 155px;
+  height: 285px;
+  width:330px;
+  background:transparent; 
+  border:solid #AEF0FA; 
+  border-width:1px 0px 1px 1px; 
+  overflow:hidden;
+  -webkit-border-top-left-radius: 7px;
+  -moz-border-radius-topleft: 7px;
+  border-top-left-radius: 7px;
+  -webkit-border-bottom-left-radius: 7px;
+  -moz-border-radius-bottomleft: 7px;
+  border-bottom-left-radius: 7px;
+  z-index: 200;
+}
+
+#middleboxtext {
+  margin: 5px 30px 30px 10px;
+}
+
+#middleboxpa h4, #middleboxpa_metro h4 { 
+  color:#fff;
+  font-family:Arial, Helvetica, sans-serif; 
+  font-weight:bold;
+  font-size:18px;  
+  margin-top:0px;
+  margin-bottom:5px;
+  line-height: 20px;
+}
+
+#middleboxpa span, #bottomboxpa span, #topboxpa span, #middleboxpa_metro span, #bottomboxpa_metro span, #topboxpa_metro span {
+  position: relative;
+  display: inline; 
+  font-family:Arial, Helvetica, sans-serif; 
+  font-size:14px;  
+  color:#000;
+  line-height: 1.4;
+}    
+  
+#bottomboxpa {
+  display:block;
+  float:left;
+  position:absolute;
+  left:470px;
+  top: 492px;
+  width:430px;
+  height:143px;
+  background:transparent;
+  -webkit-border-top-left-radius: 7px;
+  -moz-border-radius-topleft: 7px;
+  border-top-left-radius: 7px;
+  border-right:0px;
+  border-left:1px solid #AEF0FA;
+  border-top:1px solid #AEF0FA;
+  border-bottom:0px;
+}
+
+#bottomboxpa_metro {
+  display:block;
+  float:left;
+  position:absolute;
+  left:570px;
+  top: 450px;
+  width:330px;
+  height:165px;
+  background:transparent;
+  -webkit-border-top-left-radius: 7px;
+  -moz-border-radius-topleft: 7px;
+  border-top-left-radius: 7px;
+  border-right:0px;
+  border-left:1px solid #AEF0FA;
+  border-top:1px solid #AEF0FA;
+  border-bottom:0px;
+}
+
+#bottomboxtext {
+  margin: 5px 30px 30px 10px;
+}
+
+#bottomboxtext .white, #topboxtext .white, #bottomboxtext .white a   { 
+  color:#fff;
+  font-family:Arial, Helvetica, sans-serif; 
+  font-weight:bold;
+  font-size:14px;  
+  margin-top:0px;
+  margin-bottom:5px;
+}
+
+.btn:focus {
+    outline: thin dotted rgb(51, 51, 51);
+    outline-offset: -2px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 3px 6px 6px 6px;
+    margin-bottom: 0px;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    color: #000;
+    font-weight: bold;
+    text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.75);
+    background-color: rgb(245, 245, 245);
+    background-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(230, 230, 230));
+    background-repeat: repeat-x;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(187, 187, 187) rgb(187, 187, 187) rgb(162, 162, 162);
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    border-image: none;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.2) inset, 0px 1px 2px rgba(0, 0, 0, 0.05);
+    text-transform: none;
+    text-decoration: none;
+}
+
+#middleboxtext a, #middleboxtext_metro a {
+    color: #000;
+    text-decoration: none;
+}
+
+#middleboxtext a:hover, #middleboxtext_metro a:hover {
+    text-decoration: none;
+    background-image: linear-gradient(to bottom, rgb(230, 230, 230), rgb(240, 240, 240));
+    background-repeat: repeat-x;
+}
+

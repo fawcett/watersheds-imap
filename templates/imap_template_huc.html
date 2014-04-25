@@ -1,0 +1,19 @@
+<!-- MapServer Template -->
+<html>
+  <head>
+    <title>Simple Template For Imagemaps</title>
+  </head>
+  <body>
+
+<map id="mymap" name="mymap">
+[resultset layer=watersheds]
+  [feature]
+  <area id="[MAJOR]" desc="[WSHD_DESC] [WSHD_DESC2]" shape="poly" coords="[shpxy precision=0 proj=image]" href="MPCA_URL" alt="[Name]"/>
+  [/feature]
+[/resultset]
+</map>
+
+<img border="0" src="http://127.0.0.1:8080/cgi-bin/mapserv.exe?map=/OSGeo4w/apps/watershed/ws-imap.map&mode=map" usemap="#mymap">
+
+</body>
+</html>

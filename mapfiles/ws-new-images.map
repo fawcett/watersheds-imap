@@ -1,0 +1,124 @@
+# this is for creating the image files for each watershed
+
+MAP
+
+  NAME 'basic'
+  SIZE 550 625
+  #EXTENT  145400 4805000 777000 5488749
+  EXTENT  135400 4808000 770000 5474000
+  UNITS METERS
+  #IMAGECOLOR 100 100 100
+  
+  SHAPEPATH "data/"
+  FONTSET "fonts/fonts.list"
+  
+  IMAGETYPE "AGGAQ"
+  #IMAGETYPE "AGG"
+  
+  OUTPUTFORMAT
+    NAME 'AGG'
+    DRIVER AGG/PNG
+    IMAGEMODE RGB
+  END
+  OUTPUTFORMAT
+    NAME 'AGGAQ'
+    DRIVER AGG/PNG # not AGG specific, also works with GD. PNG is mandatory though
+    IMAGEMODE RGBA  # only for rgba imagemodes
+    MIMETYPE "image/png"
+    FORMATOPTION "QUANTIZE_FORCE=ON"
+    FORMATOPTION "QUANTIZE_COLORS=256"
+  END
+
+
+  OUTPUTFORMAT
+    NAME 'html'
+    DRIVER 'TEMPLATE'
+    MIMETYPE 'text/html'
+    FORMATOPTION 'FILE=imap_template.html'
+  END
+
+
+
+  PROJECTION
+    "init=epsg:26915"
+  END
+
+  WEB
+    #IMAGEPATH "/ms4w/tmp/ms_tmp/"
+	IMAGEPATH "/OSGeo4w/tmp/"
+    IMAGEURL "/tmp/"
+    MAXSCALE 15500000
+  END
+
+
+
+LAYER
+  NAME "watersheds"
+  STATUS DEFAULT
+  DATA 'wbd8clip'
+  TYPE POLYGON
+  TEMPLATE "imap_template.html"
+    CLASS 
+    EXPRESSION ([MAJOR] = %wid%)
+	   STYLE
+	      #COLOR 3 78 123
+	      COLOR "#FA9742"
+	      #OUTLINECOLOR 137 112 68
+	   END
+    END
+
+END
+
+LAYER
+  NAME "wshdcities"
+  STATUS DEFAULT
+  DATA 'wshd_cities'
+  TYPE POINT
+  LABELITEM "NAME"
+  TEMPLATE "imap_template.html"
+    CLASS 
+    EXPRESSION ([WID] = %wid%)
+	   STYLE
+	      COLOR 0 0 0
+	      SYMBOL 'circle'
+	      SIZE 5
+	      #OUTLINECOLOR 137 112 68
+	   END
+	   LABEL
+              #COLOR 255 255 255
+              COLOR 0 0 0
+              ANTIALIAS TRUE
+	      #BACKGROUNDCOLOR 0 0 0
+	      #SHADOWCOLOR 255 255 255
+	      #SHADOWSIZE 3 3
+	      #OUTLINECOLOR 255 255 255
+	      #OUTLINEWIDTH 5
+	      FONT "myriad-pca"
+	      #FONT "myriadpro"
+	      #FONT "myriadpro-bold"
+              TYPE truetype
+              SIZE 12
+              POSITION AUTO
+              PARTIALS FALSE
+           END
+    END
+
+END
+
+
+# Symbols ###################
+
+SYMBOL
+  NAME 'circle'
+  TYPE ELLIPSE
+  POINTS 1 1 END
+  FILLED TRUE
+END
+
+
+
+END  # end of map
+
+# sample watershed tile call:  http://127.0.0.1:8080/cgi-bin/mapserv.exe?map=/OSGeo4w/apps/watershed/ws-new-images.map&mode=map&wid=79
+# URL to call: http://localhost/cgi-bin/mapserv.exe?map=/ms4w/apps/noflash/ws-imap.map&qlayer=watersheds&mode=nquery&searchmap=true
+# Just the map:  http://localhost/cgi-bin/mapserv.exe?map=/ms4w/apps/noflash/ws-imap.map&mode=map
